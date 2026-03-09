@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 230 20% 11%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 230 20% 11%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 264 78% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 18% 14%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 230 15% 18%;
+    --muted-foreground: 230 10% 48%;
+
+    --accent: 264 78% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 55% 48%;
+    --success-foreground: 0 0% 4%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 4%;
+
+    --border: 230 15% 16%;
+    --input: 230 15% 16%;
+    --ring: 264 78% 53%;
+    --radius: 0.75rem;
+
+    --sidebar-background: 230 25% 7%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 264 78% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 18% 14%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 230 15% 16%;
+    --sidebar-ring: 264 78% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* ── Slide Layout ── */
+  .slide-section {
+    @apply relative min-h-screen flex items-center overflow-hidden;
+    background: hsl(var(--background));
+  }
+
+  .slide-container {
+    @apply max-w-[1100px] mx-auto px-12 py-24 w-full relative z-10;
+  }
+
+  .slide-wide {
+    @apply max-w-[1280px] mx-auto px-12 py-24 w-full relative z-10;
+  }
+
+  /* ── Photo Overlay ── */
+  .photo-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(
+      180deg,
+      hsl(230 25% 7% / 0.4) 0%,
+      hsl(230 25% 7% / 0.75) 55%,
+      hsl(230 25% 7% / 0.92) 100%
+    );
+  }
+
+  /* ── Glass Card — subtle, S1-style ── */
+  .glass-card {
+    @apply rounded-2xl;
+    background: hsl(230 20% 11% / 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(230 15% 20% / 0.5);
+  }
+
+  /* ── Tags ── */
+  .tag {
+    @apply inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full;
+    color: hsl(var(--primary));
+    background: hsl(264 78% 53% / 0.06);
+    border: 1px solid hsl(264 78% 53% / 0.1);
+  }
+  .tag-danger {
+    @apply inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full;
+    color: hsl(250 76% 57%);
+    background: hsl(250 76% 57% / 0.06);
+    border: 1px solid hsl(250 76% 57% / 0.1);
+  }
+  .tag-success {
+    @apply inline-flex items-center gap-2 text-[10px] font-semibold tracking-[0.2em] uppercase px-3.5 py-1.5 rounded-full;
+    color: hsl(var(--success));
+    background: hsl(152 55% 48% / 0.06);
+    border: 1px solid hsl(152 55% 48% / 0.1);
+  }
+
+  /* ── Meta Label ── */
+  .meta {
+    @apply text-[10px] font-medium tracking-[0.2em] uppercase;
+    color: hsl(230 10% 40%);
+  }
+
+  /* ── Stat Number — S1 style ── */
+  .stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply font-bold tracking-tight leading-none;
+    color: hsl(var(--primary));
+  }
+
+  /* ── Purple Accent Line (like CSPM / CWPP headers on S1) ── */
+  .accent-line {
+    @apply w-full h-[2px] mb-5;
+    background: linear-gradient(90deg, hsl(264 78% 53%), hsl(264 78% 53% / 0.2));
+  }
+  .accent-line-danger {
+    @apply w-full h-[2px] mb-5;
+    background: linear-gradient(90deg, hsl(0 72% 51%), hsl(0 72% 51% / 0.2));
+  }
+  .accent-line-success {
+    @apply w-full h-[2px] mb-5;
+    background: linear-gradient(90deg, hsl(152 55% 48%), hsl(152 55% 48% / 0.2));
+  }
+
+  /* ── Separator ── */
+  .sep {
+    @apply w-full h-px;
+    background: hsl(230 15% 16%);
+  }
+
+  /* ── CTA Buttons — S1 has outlined white + filled purple ── */
+  .cta-btn {
+    @apply inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold transition-all duration-300;
+    background: transparent;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(0 0% 100% / 0.25);
+  }
+  .cta-btn:hover {
+    background: hsl(0 0% 100% / 0.06);
+    border-color: hsl(0 0% 100% / 0.4);
+    transform: translateY(-1px);
+  }
+
+  .cta-btn-filled {
+    @apply inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-semibold transition-all duration-300;
+    background: hsl(var(--primary));
+    color: white;
+    border: 1px solid transparent;
+  }
+  .cta-btn-filled:hover {
+    filter: brightness(1.12);
+    transform: translateY(-1px);
+  }
+
+  /* ── Feature Grid — S1 style with accent line on top ── */
+  .s1-feature-grid {
+    @apply grid gap-0;
+  }
+  .s1-feature-item {
+    @apply pt-0 pb-6 pr-8;
+  }
+  .s1-feature-item .s1-feature-icon {
+    @apply mb-5 transition-transform duration-300;
+  }
+  .s1-feature-item:hover .s1-feature-icon {
+    transform: scale(1.08);
+  }
+  .s1-feature-item h3 {
+    @apply text-lg font-semibold text-foreground mb-2 leading-tight;
+  }
+  .s1-feature-item p {
+    @apply text-sm leading-relaxed;
+    color: hsl(230 10% 55%);
+  }
+
+  /* ── Left accent border ── */
+  .accent-border-left {
+    border-left: 2px solid hsl(264 78% 53% / 0.3);
+  }
+  .danger-border-left {
+    border-left: 2px solid hsl(250 76% 57% / 0.5);
+  }
+  .success-border-left {
+    border-left: 2px solid hsl(152 55% 48% / 0.3);
+  }
+
+  /* ── Gradient text ── */
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(230 80% 72%), hsl(260 70% 68%), hsl(280 50% 72%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Glow orb (background decoration) ── */
+  .glow-orb {
+    @apply absolute rounded-full pointer-events-none;
+    filter: blur(140px);
+    opacity: 0.12;
+  }
+
+  /* ── Diagram connector ── */
+  .diagram-line {
+    @apply flex-1 h-px;
+    background: hsl(0 0% 100% / 0.2);
+  }
+  .diagram-line-danger {
+    background: hsl(0 0% 100% / 0.2);
+  }
+  .diagram-line-success {
+    background: hsl(0 0% 100% / 0.2);
+  }
+  .diagram-line-neutral {
+    background: hsl(0 0% 100% / 0.2);
+  }
+}
