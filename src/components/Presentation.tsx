@@ -95,6 +95,9 @@ const Presentation = () => {
           className="h-full w-full overflow-y-auto"
         >
           <SlideComponent />
+          <div className="fixed bottom-6 right-8 z-30">
+            <span className="meta">{String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}</span>
+          </div>
         </motion.div>
       </AnimatePresence>
 
