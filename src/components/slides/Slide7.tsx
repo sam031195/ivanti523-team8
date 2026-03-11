@@ -89,7 +89,7 @@ const Slide7 = () => (
               <div>
                 <div className="accent-line-success" />
                 <h3 className="text-xl font-semibold text-foreground mb-3">{init.heading}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed mb-8 max-w-xl">
+                <p className="text-[0.7875rem] text-muted-foreground leading-relaxed mb-8 max-w-xl">
                   {init.body}
                   {(init as any).highlight && <>{" "}<span className="text-success font-semibold">{(init as any).highlight}</span></>}
                 </p>
