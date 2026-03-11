@@ -73,7 +73,7 @@ const Slide8 = () => (
               <p className="text-[10px] font-bold text-foreground/80round/80 mt-1">Authenticate</p>
             </div>
 
-            <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col items-center gap-4">
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl blur-xl" style={{ background: "hsl(152 55% 48% / 0.35)" }} />
                 <ArchNode icon={ScanEye} label="Verify" sublabel="Every Request" delay={0.6} variant="success" size="lg" />
