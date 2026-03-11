@@ -97,7 +97,7 @@ const Slide2 = () => (
               <div>
                 <span className="meta block mb-1" style={{ color: "hsl(250 76% 72%)" }}>{event.date}</span>
                 <h3 className="text-base font-semibold text-foreground mb-1.5">{event.heading}</h3>
-                <p className="text-[0.975rem] text-muted-foreground leading-relaxed max-w-xl">{event.body}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed max-w-xl">{event.body}</p>
               </div>
             </StaggerItem>
           ))}

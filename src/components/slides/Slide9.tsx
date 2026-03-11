@@ -33,7 +33,7 @@ const Slide9 = () => (
               
               <t.icon className="w-6 h-6 text-primary/50 s1-feature-icon mb-5" strokeWidth={1.5} />
               <h3>{t.heading}</h3>
-              <p className="!text-xs">{t.body}</p>
+              <p>{t.body}</p>
             </div>
           </StaggerItem>
         ))}
