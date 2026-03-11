@@ -69,9 +69,17 @@ const Presentation = () => {
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
 
   useEffect(() => {
-    audioRef.current = new Audio("/audio/ml_conclusion.m4a");
-    audioRef.current.addEventListener("ended", () => setIsPlaying(false));
-    return () => { audioRef.current?.pause(); audioRef.current = null; };
+    const audio = new Audio("/audio/ml_conclusion.m4a");
+    audioRef.current = audio;
+    audio.addEventListener("ended", () => setIsPlaying(false));
+    const onTimeUpdate = () => {
+      if (audio.duration && audio.currentTime >= audio.duration - 1) {
+        audio.pause();
+        setIsPlaying(false);
+      }
+    };
+    audio.addEventListener("timeupdate", onTimeUpdate);
+    return () => { audio.pause(); audioRef.current = null; };
   }, []);
 
   useEffect(() => {
