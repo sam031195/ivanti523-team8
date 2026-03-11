@@ -65,7 +65,7 @@ const Slide6 = () => (
       <FadeIn delay={0.3}>
         <div className="grid grid-cols-3 gap-0 mb-8">
           {stats.map((s, i) => (
-            <div key={s.label} className={`py-4 text-center ${i > 0 ? "pl-8" : ""} ${i < 2 ? "pr-8" : ""}`}>
+            <div key={s.label} className={`py-2 text-center ${i > 0 ? "pl-8" : ""} ${i < 2 ? "pr-8" : ""}`}>
               <p className="text-4xl font-medium mb-3 bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 70%))" }}>
                 {s.prefix || ""}{s.divider ? <>{Math.floor(s.value / s.divider)}.{s.value % s.divider}{s.suffix}</> : <AnimatedCounter target={s.value} suffix={s.suffix} />}
               </p>
