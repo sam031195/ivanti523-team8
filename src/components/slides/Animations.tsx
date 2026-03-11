@@ -99,9 +99,9 @@ export const ArchNode = ({
     neutral: { bg: "hsl(230 15% 16% / 0.4)", border: "hsl(230 15% 20%)", text: "text-foreground" },
   };
   const sizeStyles = {
-    sm: { box: "w-11 h-11", icon: "w-[18px] h-[18px]", label: "text-xs" },
-    md: { box: "w-14 h-14", icon: "w-5 h-5", label: "text-sm" },
-    lg: { box: "w-16 h-16", icon: "w-6 h-6", label: "text-sm" },
+    sm: { box: "w-11 h-11", icon: "w-[18px] h-[18px]", label: "text-[16px]" },
+    md: { box: "w-14 h-14", icon: "w-5 h-5", label: "text-[18px]" },
+    lg: { box: "w-16 h-16", icon: "w-6 h-6", label: "text-[18px]" },
   };
   const c = variantStyles[variant];
   const s = sizeStyles[size];
@@ -121,7 +121,7 @@ export const ArchNode = ({
         <Icon className={`${iconS} ${c.text}`} strokeWidth={1.5} />
       </div>
       <span className={`${s.label} font-bold text-white text-center leading-tight`}>{label}</span>
-      {sublabel && sublabel.split('\n').map((line, i) => <span key={i} className={`text-[11px] font-semibold text-foreground/85 text-center leading-tight ${i === 0 ? '-mt-1' : '-mt-1.5'}`}>{line}</span>)}
+      {sublabel && sublabel.split('\n').map((line, i) => <span key={i} className={`text-[14px] font-semibold text-foreground/85 text-center leading-tight ${i === 0 ? '-mt-1' : '-mt-1.5'}`}>{line}</span>)}
     </motion.div>
   );
 };
