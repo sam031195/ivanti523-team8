@@ -37,8 +37,8 @@ const Slide6 = () => (
 
       {/* Blast radius */}
       <FadeIn delay={0.12}>
-        <p className="meta mb-5">Blast Radius</p>
-        <div className="flex items-start justify-center gap-1 mb-8">
+        <p className="meta mb-3">Blast Radius</p>
+        <div className="flex items-start justify-center gap-1 mb-5">
           <ArchNode icon={AlertTriangle} label="Zero-Day" delay={0.2} variant="neutral" size="md" />
           <div className="mt-[24px]"><Connector delay={0.28} variant="danger" /></div>
           <ArchNode icon={Landmark} label="Government" delay={0.32} variant="neutral" size="md" />
