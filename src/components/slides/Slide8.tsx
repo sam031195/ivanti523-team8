@@ -26,7 +26,7 @@ const Slide8 = () => (
           </div>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.88] tracking-[-0.04em] text-foreground mb-3">
+          <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.88] tracking-[-0.04em] text-foreground mb-3">
             Zero Trust
             <br />
             <span className="gradient-text font-medium">Architecture.</span>
