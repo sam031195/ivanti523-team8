@@ -41,7 +41,7 @@ const Slide8 = () => (
 
       {/* ZTNA Architecture — S1 platform diagram style */}
       <ScaleIn delay={0.3}>
-        <div className="relative rounded-2xl border border-border/30 p-6">
+        <div className="relative rounded-2xl border border-border/30 p-4">
           {/* Column labels */}
           <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-0 mb-3">
             <div className="text-center">
