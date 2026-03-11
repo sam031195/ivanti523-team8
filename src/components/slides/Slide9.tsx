@@ -169,22 +169,17 @@ const Slide9 = () => (
       <FadeIn delay={0.5}>
         <div>
           <p className="meta mb-4">Board Decisions Required</p>
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-3 gap-3 mb-4">
             {[
               "Approve the Corrective Action Plan (CAP) for all edge and perimeter infrastructure.",
               "Commit to mandatory 24-hour patching SLAs, accepting security must sometimes override operational uptime.",
+              "Formally accept the residual risk inherent in a phased, one-year migration.",
             ].map((decision, i) => (
-              <div key={i} className="flex items-start gap-4 border border-border/30 rounded-xl px-5 py-4" style={{ background: "hsl(264 78% 53% / 0.04)" }}>
+              <div key={i} className="flex items-start gap-3 border border-border/30 rounded-xl px-4 py-3" style={{ background: "hsl(264 78% 53% / 0.04)" }}>
                 <span className="font-display text-lg font-medium text-primary/40 mt-0.5">{i + 1}.</span>
-                <p className="text-sm text-foreground/80 leading-relaxed">{decision}</p>
+                <p className="text-[13px] text-foreground/80 leading-relaxed">{decision}</p>
               </div>
             ))}
-          </div>
-          <div className="flex justify-center mb-4">
-            <div className="flex items-start gap-4 border border-border/30 rounded-xl px-5 py-4 w-3/4 justify-center" style={{ background: "hsl(264 78% 53% / 0.04)" }}>
-              <span className="font-display text-lg font-medium text-primary/40 mt-0.5">3.</span>
-              <p className="text-sm text-foreground/80 leading-relaxed text-center">Formally accept the residual risk inherent in a phased, one-year migration.</p>
-            </div>
           </div>
         </div>
       </FadeIn>
