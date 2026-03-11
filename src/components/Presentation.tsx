@@ -97,6 +97,22 @@ const Presentation = () => {
         transition={{ duration: 0.3 }}
       >
         <span className="meta"></span>
+        {current === 8 && (
+          <div className="flex items-center gap-1">
+            {isPlaying ? (
+              <button onClick={() => { audioRef.current?.pause(); setIsPlaying(false); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+                <Pause className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
+              </button>
+            ) : (
+              <button onClick={() => { audioRef.current?.play().then(() => setIsPlaying(true)); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+                <Play className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
+              </button>
+            )}
+            <button onClick={() => { const a = audioRef.current; if (a) { a.currentTime = 0; a.play().then(() => setIsPlaying(true)); } }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+              <RotateCcw className="w-3 h-3 text-foreground" strokeWidth={1.5} />
+            </button>
+          </div>
+        )}
         <span className="meta">{String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}</span>
       </motion.div>
 
