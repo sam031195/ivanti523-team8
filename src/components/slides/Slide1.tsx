@@ -15,8 +15,7 @@ const Slide1 = () => (
 
     <div className="slide-container flex flex-col justify-center">
       <FadeIn>
-        <p className="meta mb-2">MSIS 523 — Cybersecurity Policy, Management, and Compliance · Post-Mortem Analysis</p>
-        <p className="meta mb-8 text-muted-foreground/60">Presented by Team #8 — Ashish, Surbhi, Norah, Fardeen &amp; Masud</p>
+        <p className="meta mb-8">MSIS 523 — Cybersecurity Policy, Management, and Compliance · Post-Mortem Analysis</p>
       </FadeIn>
 
       <FadeIn delay={0.1}>
