@@ -1,4 +1,8 @@
-# Welcome to your Lovable project
+
+
+# Welcome to our Final 523 Cybersecurity project
+
+Simply visit the https://ivanti523-team8.lovable.app/ to access the project.
 
 ## Project info
 
@@ -10,7 +14,6 @@ There are several ways of editing your application.
 
 **Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
