@@ -18,7 +18,7 @@ const Slide8 = () => (
     <div className="glow-orb w-[700px] h-[700px] top-1/4 left-1/2 -translate-x-1/2 bg-primary" />
 
     <div className="slide-wide">
-      <div className="text-center mb-6">
+      <div className="text-center mb-3">
         <FadeIn>
           <div className="tag mx-auto mb-4">
             <Fingerprint className="w-2.5 h-2.5" strokeWidth={1.5} />
