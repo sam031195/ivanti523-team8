@@ -26,7 +26,7 @@ const Slide9 = () => (
       </FadeIn>
 
       {/* Takeaways — S1 feature grid */}
-      <StaggerContainer className="s1-feature-grid grid-cols-3 mb-14" delay={0.12}>
+      <StaggerContainer className="s1-feature-grid grid-cols-3 mb-8" delay={0.12}>
         {takeaways.map((t) => (
           <StaggerItem key={t.heading}>
             <div className="s1-feature-item">
