@@ -19,7 +19,7 @@ const Slide9 = () => (
     <div className="slide-container">
       <FadeIn>
         <div className="tag mb-6">Conclusion</div>
-        <h1 className="font-display text-4xl md:text-[5rem] font-light leading-[0.88] tracking-[-0.04em] text-foreground mb-8">
+        <h1 className="font-display text-4xl md:text-[4rem] font-light leading-[0.88] tracking-[-0.04em] text-foreground mb-5">
           The Strategic Imperative:{" "}
           <span className="gradient-text font-medium">Managed, Monitored, and Mistrusted.</span>
         </h1>
