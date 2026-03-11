@@ -100,7 +100,7 @@ const Slide8 = () => (
       <FadeIn delay={0.95}>
         <div className="flex items-center gap-3 justify-center mt-5">
           <Check className="w-4 h-4 text-success/60 shrink-0" strokeWidth={1.5} />
-          <p className="text-sm text-foreground/50 font-medium leading-relaxed">
+          <p className="text-sm text-foreground/75 font-medium leading-relaxed">
             Eliminates single-VPN risk. Stolen credentials can't enable lateral movement — blast radius contained.
           </p>
         </div>
