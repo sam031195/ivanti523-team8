@@ -53,7 +53,7 @@ const TimelineSlide = forwardRef<HTMLDivElement, TimelineSlideProps>(({ title, s
                     <span className="meta">{event.date}</span>
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{event.heading}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{event.body}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{event.body}</p>
                 </div>
               </div>
             </StaggerItem>
