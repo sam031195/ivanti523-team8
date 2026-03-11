@@ -128,7 +128,7 @@ const Slide9 = () => (
                       </div>
                     </div>
                     <span className="text-xs font-bold text-foreground/90 text-center leading-tight">Recover</span>
-                    <span className="text-[10px] font-medium text-foreground/60 text-center leading-tight -mt-1">Resilient</span>
+                    <span className="text-[10px] font-medium text-foreground/75 text-center leading-tight -mt-1">Resilient</span>
                   </div>
                 ) : (
                   <ArchNode icon={step.icon} label={step.label} sublabel={step.sub} delay={0.2 + i * 0.08} variant={step.v} />

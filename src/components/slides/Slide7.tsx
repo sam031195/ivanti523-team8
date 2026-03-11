@@ -110,7 +110,7 @@ const Slide7 = () => (
                 </div>
 
                 {(init as any).cisTag && (
-                  <p className="text-[10px] font-semibold text-muted-foreground/50 tracking-wider uppercase mb-5">{(init as any).cisTag}</p>
+                  <p className="text-[10px] font-semibold text-muted-foreground/80 tracking-wider uppercase mb-5">{(init as any).cisTag}</p>
                 )}
 
                 {/* 30/90/180-day timeline */}

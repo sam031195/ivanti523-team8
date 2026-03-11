@@ -69,7 +69,7 @@ const Slide6 = () => (
               <p className="text-4xl font-medium mb-3 bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 70%))" }}>
                 {s.prefix || ""}{s.divider ? <>{Math.floor(s.value / s.divider)}.{s.value % s.divider}{s.suffix}</> : <AnimatedCounter target={s.value} suffix={s.suffix} />}
               </p>
-              <p className="text-xs font-medium text-foreground/60 uppercase tracking-wider mb-1">{s.label}</p>
+              <p className="text-xs font-medium text-foreground/80 uppercase tracking-wider mb-1">{s.label}</p>
               <p className="text-xs text-muted-foreground">{s.sub}</p>
             </div>
           ))}

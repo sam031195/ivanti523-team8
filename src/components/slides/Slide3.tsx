@@ -122,12 +122,12 @@ const Slide3 = () => (
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border/20">
-                  <th className="text-left px-4 py-3 text-[10px] font-bold text-foreground/60 tracking-wider uppercase">Date</th>
-                  <th className="text-left px-4 py-3 text-[10px] font-bold text-foreground/60 tracking-wider uppercase">CVE</th>
-                  <th className="text-center px-4 py-3 text-[10px] font-bold text-foreground/60 tracking-wider uppercase">CVSS</th>
-                  <th className="text-center px-4 py-3 text-[10px] font-bold text-foreground/60 tracking-wider uppercase">Auth Bypass</th>
-                  <th className="text-center px-4 py-3 text-[10px] font-bold text-foreground/60 tracking-wider uppercase">Patch 01/31</th>
-                  <th className="text-center px-4 py-3 text-[10px] font-bold text-foreground/60 tracking-wider uppercase">Patch 02/08</th>
+                   <th className="text-left px-4 py-3 text-[10px] font-bold text-foreground/80 tracking-wider uppercase">Date</th>
+                   <th className="text-left px-4 py-3 text-[10px] font-bold text-foreground/80 tracking-wider uppercase">CVE</th>
+                   <th className="text-center px-4 py-3 text-[10px] font-bold text-foreground/80 tracking-wider uppercase">CVSS</th>
+                   <th className="text-center px-4 py-3 text-[10px] font-bold text-foreground/80 tracking-wider uppercase">Auth Bypass</th>
+                   <th className="text-center px-4 py-3 text-[10px] font-bold text-foreground/80 tracking-wider uppercase">Patch 01/31</th>
+                   <th className="text-center px-4 py-3 text-[10px] font-bold text-foreground/80 tracking-wider uppercase">Patch 02/08</th>
                 </tr>
               </thead>
               <tbody>

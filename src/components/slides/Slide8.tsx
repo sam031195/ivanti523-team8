@@ -104,7 +104,7 @@ const Slide8 = () => (
             Eliminates single-VPN risk. Stolen credentials can't enable lateral movement — blast radius contained.
           </p>
         </div>
-        <p className="text-[10px] text-muted-foreground/40 text-center mt-2 tracking-wider uppercase font-semibold">
+        <p className="text-[10px] text-muted-foreground/75 text-center mt-2 tracking-wider uppercase font-semibold">
           Timeline: 12 months to full production deployment. Addresses: CIS Controls 4, 6, 7, 12.
         </p>
       </FadeIn>
