@@ -22,7 +22,7 @@
     --secondary-foreground: 0 0% 90%;
 
     --muted: 230 15% 18%;
-    --muted-foreground: 230 10% 48%;
+    --muted-foreground: 230 10% 72%;
 
     --accent: 264 78% 53%;
     --accent-foreground: 0 0% 100%;
@@ -121,7 +121,7 @@
   /* ── Meta Label ── */
   .meta {
     @apply text-[10px] font-medium tracking-[0.2em] uppercase;
-    color: hsl(230 10% 40%);
+    color: hsl(230 10% 68%);
   }
 
   /* ── Stat Number — S1 style ── */
@@ -193,7 +193,7 @@
   }
   .s1-feature-item p {
     @apply text-sm leading-relaxed;
-    color: hsl(230 10% 55%);
+    color: hsl(230 10% 78%);
   }
 
   /* ── Left accent border ── */

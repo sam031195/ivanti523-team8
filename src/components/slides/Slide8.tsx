@@ -64,7 +64,7 @@ const Slide8 = () => (
           <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-0 py-8">
             <div className="flex flex-col items-center gap-6">
               <ArchNode icon={User} label="User" sublabel="FIDO2 MFA" delay={0.4} />
-              <p className="text-[10px] text-muted-foreground text-center max-w-[180px] leading-snug -mt-3">Issue hardware security keys (YubiKey/FIDO2) to all privileged users and integrate with PAM solution, which is a critical implementation detail. Eliminate legacy MFA fallback paths. <span className="text-muted-foreground/40">Timeline: 90 days.</span></p>
+              <p className="text-[10px] text-muted-foreground text-center max-w-[180px] leading-snug -mt-3">Issue hardware security keys (YubiKey/FIDO2) to all privileged users and integrate with PAM solution, which is a critical implementation detail. Eliminate legacy MFA fallback paths. <span className="text-muted-foreground/75">Timeline: 90 days.</span></p>
               <ArchNode icon={Wifi} label="Device" sublabel="Posture Check" delay={0.5} />
             </div>
 
@@ -100,11 +100,11 @@ const Slide8 = () => (
       <FadeIn delay={0.95}>
         <div className="flex items-center gap-3 justify-center mt-5">
           <Check className="w-4 h-4 text-success/60 shrink-0" strokeWidth={1.5} />
-          <p className="text-sm text-foreground/50 font-medium leading-relaxed">
+          <p className="text-sm text-foreground/75 font-medium leading-relaxed">
             Eliminates single-VPN risk. Stolen credentials can't enable lateral movement — blast radius contained.
           </p>
         </div>
-        <p className="text-[10px] text-muted-foreground/40 text-center mt-2 tracking-wider uppercase font-semibold">
+        <p className="text-[10px] text-muted-foreground/75 text-center mt-2 tracking-wider uppercase font-semibold">
           Timeline: 12 months to full production deployment. Addresses: CIS Controls 4, 6, 7, 12.
         </p>
       </FadeIn>
