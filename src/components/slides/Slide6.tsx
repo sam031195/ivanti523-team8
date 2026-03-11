@@ -77,7 +77,7 @@ const Slide6 = () => (
       </FadeIn>
 
       {/* Impact — S1 feature grid */}
-      <div className="relative h-[3px] w-full mb-6">
+      <div className="relative h-[3px] w-full mb-4">
         <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 3">
           <defs>
             <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">

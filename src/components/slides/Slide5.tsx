@@ -125,7 +125,7 @@ const Slide5 = () => (
       </StaggerContainer>
 
       <FadeIn delay={0.65}>
-        <div className="sep mt-6 mb-4" />
+        <div className="sep mt-3 mb-3" />
         <div className="mb-4">
           <p className="text-[10px] font-semibold text-destructive/40 tracking-wider uppercase mb-1">NIST CSF Mapping</p>
           <p className="text-sm text-muted-foreground leading-relaxed">

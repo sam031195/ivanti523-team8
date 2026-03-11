@@ -89,7 +89,7 @@ const Slide8 = () => (
               <p className="text-[10px] font-bold text-foreground/80 mt-1">Authorize</p>
             </div>
 
-            <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col items-center gap-4">
               <ArchNode icon={Server} label="Apps" sublabel="Micro-Segmented" delay={0.8} variant="success" />
               <ArchNode icon={Globe} label="Network" sublabel="Least Privilege" delay={0.9} variant="success" />
             </div>

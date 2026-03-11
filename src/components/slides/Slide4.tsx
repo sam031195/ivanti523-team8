@@ -56,8 +56,8 @@ const Slide4 = () => (
 
       {/* Failure chain */}
       <FadeIn delay={0.15}>
-        <p className="meta mb-8">Control Failure Chain</p>
-        <div className="flex items-center justify-center gap-1 mb-16">
+        <p className="meta mb-5">Control Failure Chain</p>
+        <div className="flex items-center justify-center gap-1 mb-8">
           <ArchNode icon={RefreshCw} label="No Patching" sublabel="CIS 7" delay={0.2} variant="neutral" size="sm" />
           <Connector delay={0.28} variant="neutral" />
           <ArchNode icon={Settings} label="No Hardening" sublabel="CIS 4" delay={0.32} variant="neutral" size="sm" />

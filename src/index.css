@@ -141,7 +141,7 @@
     background: linear-gradient(90deg, hsl(0 72% 51%), hsl(0 72% 51% / 0.2));
   }
   .accent-line-success {
-    @apply w-full h-[2px] mb-5;
+    @apply w-full h-[2px] mb-3;
     background: linear-gradient(90deg, hsl(152 55% 48%), hsl(152 55% 48% / 0.2));
   }
 

@@ -102,7 +102,7 @@ const Slide3 = () => (
             ))}
           </div>
           {/* Timeline content */}
-          <div className="space-y-5 pl-6">
+          <div className="space-y-3 pl-6">
             {events.map((event, i) => (
               <StaggerItem key={i}>
                 <div>

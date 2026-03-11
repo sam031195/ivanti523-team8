@@ -41,8 +41,8 @@ const Slide9 = () => (
 
       {/* Future state ops model */}
       <FadeIn delay={0.35}>
-        <p className="meta mb-6">Future State — Security Operations Model</p>
-        <div className="flex items-center justify-between mb-8 px-2">
+        <p className="meta mb-4">Future State — Security Operations Model</p>
+        <div className="flex items-center justify-between mb-5 px-2">
           {[
             { icon: Radar, label: "Detect", sub: "Continuous", v: "default" as const },
             { icon: Activity, label: "Analyze", sub: "AI + Human", v: "default" as const },
