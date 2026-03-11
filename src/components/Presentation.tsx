@@ -18,6 +18,27 @@ const Presentation = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const [showUI, setShowUI] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio("/audio/ml_conclusion.m4a");
+    audioRef.current.addEventListener("ended", () => setIsPlaying(false));
+    return () => { audioRef.current?.pause(); audioRef.current = null; };
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (current === 8) {
+      audio.currentTime = 0;
+      audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+      setIsPlaying(false);
+    }
+  }, [current]);
 
   const go = useCallback((dir: number) => {
     setCurrent((prev) => {
