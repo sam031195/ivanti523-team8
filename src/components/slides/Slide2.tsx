@@ -22,7 +22,7 @@ const Slide2 = () => (
     <div className="slide-wide">
       <FadeIn>
         <div className="tag-danger mb-6">Timeline · Phase 1</div>
-        <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
+        <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
           The Covert <span className="font-medium bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(230 80% 72%), hsl(260 70% 68%), hsl(280 50% 72%))" }}>Phase.</span>
         </h1>
         <p className="text-base text-muted-foreground font-light mb-8 max-w-lg">
