@@ -19,14 +19,14 @@ const Slide9 = () => (
     <div className="slide-container">
       <FadeIn>
         <div className="tag mb-6">Conclusion</div>
-        <h1 className="font-display text-4xl md:text-[5rem] font-light leading-[0.88] tracking-[-0.04em] text-foreground mb-8">
+        <h1 className="font-display text-4xl md:text-[4rem] font-light leading-[0.88] tracking-[-0.04em] text-foreground mb-5">
           The Strategic Imperative:{" "}
           <span className="gradient-text font-medium">Managed, Monitored, and Mistrusted.</span>
         </h1>
       </FadeIn>
 
       {/* Takeaways — S1 feature grid */}
-      <StaggerContainer className="s1-feature-grid grid-cols-3 mb-14" delay={0.12}>
+      <StaggerContainer className="s1-feature-grid grid-cols-3 mb-8" delay={0.12}>
         {takeaways.map((t) => (
           <StaggerItem key={t.heading}>
             <div className="s1-feature-item">
@@ -41,8 +41,8 @@ const Slide9 = () => (
 
       {/* Future state ops model */}
       <FadeIn delay={0.35}>
-        <p className="meta mb-6">Future State — Security Operations Model</p>
-        <div className="flex items-center justify-between mb-8 px-2">
+        <p className="meta mb-4">Future State — Security Operations Model</p>
+        <div className="flex items-center justify-between mb-5 px-2">
           {[
             { icon: Radar, label: "Detect", sub: "Continuous", v: "default" as const },
             { icon: Activity, label: "Analyze", sub: "AI + Human", v: "default" as const },

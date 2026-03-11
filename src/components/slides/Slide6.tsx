@@ -29,7 +29,7 @@ const Slide6 = () => (
           <TrendingDown className="w-2.5 h-2.5" strokeWidth={1.5} />
           Business Impact
         </div>
-        <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-8">
+        <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-5">
           Technical Failure →{" "}
           <span className="text-destructive font-medium">Business Risk.</span>
         </h1>
@@ -37,8 +37,8 @@ const Slide6 = () => (
 
       {/* Blast radius */}
       <FadeIn delay={0.12}>
-        <p className="meta mb-5">Blast Radius</p>
-        <div className="flex items-start justify-center gap-1 mb-8">
+        <p className="meta mb-3">Blast Radius</p>
+        <div className="flex items-start justify-center gap-1 mb-5">
           <ArchNode icon={AlertTriangle} label="Zero-Day" delay={0.2} variant="neutral" size="md" />
           <div className="mt-[24px]"><Connector delay={0.28} variant="danger" /></div>
           <ArchNode icon={Landmark} label="Government" delay={0.32} variant="neutral" size="md" />
@@ -63,9 +63,9 @@ const Slide6 = () => (
 
       {/* Stats — S1 style with accent lines above */}
       <FadeIn delay={0.3}>
-        <div className="grid grid-cols-3 gap-0 mb-8">
+        <div className="grid grid-cols-3 gap-0 mb-5">
           {stats.map((s, i) => (
-            <div key={s.label} className={`py-4 text-center ${i > 0 ? "pl-8" : ""} ${i < 2 ? "pr-8" : ""}`}>
+            <div key={s.label} className={`py-2 text-center ${i > 0 ? "pl-8" : ""} ${i < 2 ? "pr-8" : ""}`}>
               <p className="text-4xl font-medium mb-3 bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 70%))" }}>
                 {s.prefix || ""}{s.divider ? <>{Math.floor(s.value / s.divider)}.{s.value % s.divider}{s.suffix}</> : <AnimatedCounter target={s.value} suffix={s.suffix} />}
               </p>
@@ -77,7 +77,7 @@ const Slide6 = () => (
       </FadeIn>
 
       {/* Impact — S1 feature grid */}
-      <div className="relative h-[3px] w-full mb-6">
+      <div className="relative h-[3px] w-full mb-4">
         <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 3">
           <defs>
             <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">

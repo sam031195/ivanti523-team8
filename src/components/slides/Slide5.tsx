@@ -17,15 +17,15 @@ const Slide5 = () => (
           <EyeOff className="w-2.5 h-2.5" strokeWidth={1.5} />
           Visibility Failure
         </div>
-        <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-14">
+        <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-8">
           Why We Were <span className="text-destructive font-medium">Blind.</span>
         </h1>
       </FadeIn>
 
       {/* SOC Architecture — S1 style open layout */}
       <FadeIn delay={0.2}>
-        <p className="meta mb-10">Security Operations Architecture</p>
-        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 items-start mb-10">
+        <p className="meta mb-6">Security Operations Architecture</p>
+        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 items-start mb-6">
           {/* Monitored */}
           <div>
             <div className="accent-line-success" />
@@ -125,7 +125,7 @@ const Slide5 = () => (
       </StaggerContainer>
 
       <FadeIn delay={0.65}>
-        <div className="sep mt-6 mb-4" />
+        <div className="sep mt-3 mb-3" />
         <div className="mb-4">
           <p className="text-[10px] font-semibold text-destructive/40 tracking-wider uppercase mb-1">NIST CSF Mapping</p>
           <p className="text-sm text-muted-foreground leading-relaxed">

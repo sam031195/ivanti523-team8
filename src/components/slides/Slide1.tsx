@@ -15,11 +15,11 @@ const Slide1 = () => (
 
     <div className="slide-container flex flex-col justify-center">
       <FadeIn>
-        <p className="meta mb-8">MSIS 523 — Cybersecurity Policy, Management, and Compliance · Post-Mortem Analysis</p>
+        <p className="meta mb-5">MSIS 523 — Cybersecurity Policy, Management, and Compliance · Post-Mortem Analysis</p>
       </FadeIn>
 
       <FadeIn delay={0.1}>
-        <h1 className="font-display text-6xl md:text-[7rem] font-light leading-[0.9] tracking-[-0.04em] text-foreground mb-6">
+        <h1 className="font-display text-6xl md:text-[5.5rem] font-light leading-[0.9] tracking-[-0.04em] text-foreground mb-5">
           Ivanti Connect
           <br />
           <span className="gradient-text font-medium">Secure Incident.</span>
@@ -27,13 +27,13 @@ const Slide1 = () => (
       </FadeIn>
 
       <FadeIn delay={0.2}>
-        <p className="text-lg text-muted-foreground max-w-md font-light leading-relaxed mb-12">
+        <p className="text-lg text-muted-foreground max-w-md font-light leading-relaxed mb-8">
           GRC Failures, Governance Breakdown, and the Strategic Path to Zero Trust Architecture.
         </p>
       </FadeIn>
 
       <FadeIn delay={0.3}>
-        <button className="cta-btn mb-20">
+        <button className="cta-btn mb-10">
           Explore Findings <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
         </button>
       </FadeIn>

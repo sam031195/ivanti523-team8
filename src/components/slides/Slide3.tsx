@@ -31,17 +31,17 @@ const Slide3 = () => (
           <AlertOctagon className="w-2.5 h-2.5" strokeWidth={1.5} />
           Timeline · Phase 2
         </div>
-        <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
+        <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
           The Global <span className="font-medium bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(230 80% 72%), hsl(260 70% 68%), hsl(280 50% 72%))" }}>Crisis.</span>
         </h1>
-        <p className="text-base text-muted-foreground font-light mb-12 max-w-lg">
+        <p className="text-base text-muted-foreground font-light mb-6 max-w-lg">
           Escalation from disclosure to emergency federal directive in 22 days.
         </p>
       </FadeIn>
 
       {/* Escalation flow */}
       <FadeIn delay={0.15}>
-        <p className="meta mb-8">Escalation Path</p>
+        <p className="meta mb-4">Escalation Path</p>
         <div className="flex items-start justify-between mb-5 px-4">
           <ArchNode icon={Megaphone} label="Disclosure" sublabel="Jan 10" delay={0.2} variant="neutral" />
           <div className="mt-[24px]"><Connector delay={0.3} variant="neutral" /></div>
@@ -62,7 +62,7 @@ const Slide3 = () => (
             { value: 48, suffix: "hrs", label: "To Full Disconnect" },
             { value: 5, suffix: "", label: "Full vulnerability cascade" },
           ].map((s, i) => (
-            <div key={s.label} className="py-5 text-center">
+            <div key={s.label} className="py-3 text-center">
               <p className="stat-number text-4xl mb-2">
                 <AnimatedCounter target={s.value} suffix={s.suffix} />
               </p>
@@ -102,7 +102,7 @@ const Slide3 = () => (
             ))}
           </div>
           {/* Timeline content */}
-          <div className="space-y-5 pl-6">
+          <div className="space-y-3 pl-6">
             {events.map((event, i) => (
               <StaggerItem key={i}>
                 <div>

@@ -22,17 +22,17 @@ const Slide2 = () => (
     <div className="slide-wide">
       <FadeIn>
         <div className="tag-danger mb-6">Timeline · Phase 1</div>
-        <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
+        <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
           The Covert <span className="font-medium bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(230 80% 72%), hsl(260 70% 68%), hsl(280 50% 72%))" }}>Phase.</span>
         </h1>
-        <p className="text-base text-muted-foreground font-light mb-14 max-w-lg">
+        <p className="text-base text-muted-foreground font-light mb-8 max-w-lg">
           Weeks of undetected compromise before any public awareness.
         </p>
       </FadeIn>
 
       {/* Kill Chain — clean S1 flow */}
       <FadeIn delay={0.15}>
-        <p className="meta mb-8">Attack Kill Chain</p>
+        <p className="meta mb-5">Attack Kill Chain</p>
         <div className="flex items-start justify-between mb-8">
           {[
             { icon: Bug, label: "Exploit", sub: "CVE-2023-46805" },
@@ -91,7 +91,7 @@ const Slide2 = () => (
           ))}
         </div>
         {/* Timeline content */}
-        <div className="space-y-6 pl-6">
+        <div className="space-y-4 pl-6">
           {events.map((event, i) => (
             <StaggerItem key={i}>
               <div>
