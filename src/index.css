@@ -193,7 +193,7 @@
   }
   .s1-feature-item p {
     @apply text-sm leading-relaxed;
-    color: hsl(230 10% 55%);
+    color: hsl(230 10% 78%);
   }
 
   /* ── Left accent border ── */
