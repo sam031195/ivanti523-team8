@@ -18,7 +18,7 @@ const Slide8 = () => (
     <div className="glow-orb w-[700px] h-[700px] top-1/4 left-1/2 -translate-x-1/2 bg-primary" />
 
     <div className="slide-wide">
-      <div className="text-center mb-3">
+      <div className="text-center mb-6">
         <FadeIn>
           <div className="tag mx-auto mb-4">
             <Fingerprint className="w-2.5 h-2.5" strokeWidth={1.5} />
@@ -26,7 +26,7 @@ const Slide8 = () => (
           </div>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.88] tracking-[-0.04em] text-foreground mb-3">
+          <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.88] tracking-[-0.04em] text-foreground mb-3">
             Zero Trust
             <br />
             <span className="gradient-text font-medium">Architecture.</span>
@@ -41,7 +41,7 @@ const Slide8 = () => (
 
       {/* ZTNA Architecture — S1 platform diagram style */}
       <ScaleIn delay={0.3}>
-        <div className="relative rounded-2xl border border-border/30 p-4">
+        <div className="relative rounded-2xl border border-border/30 p-6">
           {/* Column labels */}
           <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-start gap-0 mb-3">
             <div className="text-center">
@@ -61,8 +61,8 @@ const Slide8 = () => (
           </div>
 
           {/* Nodes */}
-          <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-0 py-4">
-            <div className="flex flex-col items-center gap-4">
+          <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-0 py-8">
+            <div className="flex flex-col items-center gap-6">
               <ArchNode icon={User} label="User" sublabel="FIDO2 MFA" delay={0.4} />
               <p className="text-[10px] text-muted-foreground text-center max-w-[180px] leading-snug -mt-3">Issue hardware security keys (YubiKey/FIDO2) to all privileged users and integrate with PAM solution, which is a critical implementation detail. Eliminate legacy MFA fallback paths. <span className="text-muted-foreground/75">Timeline: 90 days.</span></p>
               <ArchNode icon={Wifi} label="Device" sublabel="Posture Check" delay={0.5} />
@@ -73,7 +73,7 @@ const Slide8 = () => (
               <p className="text-[10px] font-bold text-foreground/80round/80 mt-1">Authenticate</p>
             </div>
 
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-6">
               <div className="relative">
                 <div className="absolute inset-0 rounded-2xl blur-xl" style={{ background: "hsl(152 55% 48% / 0.35)" }} />
                 <ArchNode icon={ScanEye} label="Verify" sublabel="Every Request" delay={0.6} variant="success" size="lg" />
@@ -89,7 +89,7 @@ const Slide8 = () => (
               <p className="text-[10px] font-bold text-foreground/80 mt-1">Authorize</p>
             </div>
 
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-6">
               <ArchNode icon={Server} label="Apps" sublabel="Micro-Segmented" delay={0.8} variant="success" />
               <ArchNode icon={Globe} label="Network" sublabel="Least Privilege" delay={0.9} variant="success" />
             </div>

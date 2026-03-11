@@ -48,16 +48,16 @@ const Slide4 = () => (
           <AlertTriangle className="w-2.5 h-2.5" strokeWidth={1.5} />
           Root Cause Analysis
         </div>
-        <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
+        <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
           Why Did <span className="font-medium bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(230 80% 72%), hsl(260 70% 68%), hsl(280 50% 72%))" }}>It Happen?</span>
         </h1>
-        <p className="text-muted-foreground font-light mb-6 max-w-lg">Mapped to CIS Controls framework.</p>
+        <p className="text-muted-foreground font-light mb-14 max-w-lg">Mapped to CIS Controls framework.</p>
       </FadeIn>
 
       {/* Failure chain */}
       <FadeIn delay={0.15}>
-        <p className="meta mb-5">Control Failure Chain</p>
-        <div className="flex items-center justify-center gap-1 mb-8">
+        <p className="meta mb-8">Control Failure Chain</p>
+        <div className="flex items-center justify-center gap-1 mb-16">
           <ArchNode icon={RefreshCw} label="No Patching" sublabel="CIS 7" delay={0.2} variant="neutral" size="sm" />
           <Connector delay={0.28} variant="neutral" />
           <ArchNode icon={Settings} label="No Hardening" sublabel="CIS 4" delay={0.32} variant="neutral" size="sm" />

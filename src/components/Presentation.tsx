@@ -14,37 +14,11 @@ import Slide9 from "@/components/slides/Slide9";
 const slides = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8, Slide9];
 const TOTAL = slides.length;
 
-const WaveformBars = ({ isPlaying }: { isPlaying: boolean }) => (
-  <>
-    <style>{`
-      @keyframes waveform {
-        0%, 100% { height: 3px; }
-        50% { height: var(--wave-h); }
-      }
-    `}</style>
-    <div className="flex items-center gap-[2px] h-4">
-      {[0, 1, 2, 3, 4].map((i) => (
-        <div
-          key={i}
-          className="w-[2px] rounded-full bg-foreground/40"
-          style={{
-            height: isPlaying ? undefined : "3px",
-            ["--wave-h" as string]: ["12px", "16px", "10px", "14px", "8px"][i],
-            animation: isPlaying ? `waveform ${[0.8, 0.6, 0.9, 0.7, 1.0][i]}s ease-in-out ${i * 0.15}s infinite` : "none",
-            transition: "height 0.3s",
-          }}
-        />
-      ))}
-    </div>
-  </>
-);
-
 const Presentation = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const [showUI, setShowUI] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [audioHover, setAudioHover] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -124,29 +98,19 @@ const Presentation = () => {
       >
         <span className="meta"></span>
         {current === 8 && (
-          <div
-            className="flex items-center gap-1 min-w-[60px] justify-center"
-            onMouseEnter={() => setAudioHover(true)}
-            onMouseLeave={() => setAudioHover(false)}
-          >
-            {!audioHover ? (
-              <WaveformBars isPlaying={isPlaying} />
+          <div className="flex items-center gap-1">
+            {isPlaying ? (
+              <button onClick={() => { audioRef.current?.pause(); setIsPlaying(false); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+                <Pause className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
+              </button>
             ) : (
-              <div className="flex items-center gap-1">
-                {isPlaying ? (
-                  <button onClick={() => { audioRef.current?.pause(); setIsPlaying(false); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
-                    <Pause className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
-                  </button>
-                ) : (
-                  <button onClick={() => { audioRef.current?.play().then(() => setIsPlaying(true)); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
-                    <Play className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
-                  </button>
-                )}
-                <button onClick={() => { const a = audioRef.current; if (a) { a.currentTime = 0; a.play().then(() => setIsPlaying(true)); } }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
-                  <RotateCcw className="w-3 h-3 text-foreground" strokeWidth={1.5} />
-                </button>
-              </div>
+              <button onClick={() => { audioRef.current?.play().then(() => setIsPlaying(true)); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+                <Play className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
+              </button>
             )}
+            <button onClick={() => { const a = audioRef.current; if (a) { a.currentTime = 0; a.play().then(() => setIsPlaying(true)); } }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+              <RotateCcw className="w-3 h-3 text-foreground" strokeWidth={1.5} />
+            </button>
           </div>
         )}
         <span className="meta">{String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}</span>
@@ -165,7 +129,7 @@ const Presentation = () => {
           animate="center"
           exit="exit"
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
-          className="h-full w-full"
+          className="h-full w-full overflow-y-auto"
         >
           <SlideComponent />
           {current === 0 && (

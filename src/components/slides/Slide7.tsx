@@ -67,35 +67,35 @@ const Slide7 = () => (
 
     <div className="slide-wide">
       <FadeIn>
-        <div className="tag-success mb-4">
+        <div className="tag-success mb-6">
           <Shield className="w-2.5 h-2.5" strokeWidth={1.5} />
           Corrective Action
         </div>
-        <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-2">
+        <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-3">
           Strategic <span className="text-success font-medium">Initiatives.</span>
         </h1>
-        <p className="text-muted-foreground font-light mb-4 max-w-2xl whitespace-nowrap">
+        <p className="text-muted-foreground font-light mb-10 max-w-2xl whitespace-nowrap">
           Recommended corrective actions to prevent recurrence and build resilience.
         </p>
       </FadeIn>
 
-      <StaggerContainer className="space-y-4" delay={0.2}>
+      <StaggerContainer className="space-y-14" delay={0.2}>
         {initiatives.map((init) => (
           <StaggerItem key={init.num}>
-            <div className="grid grid-cols-[auto_1fr] gap-4">
+            <div className="grid grid-cols-[auto_1fr] gap-8">
               <div className="pt-1">
-                <span className="font-display text-2xl font-light text-success/15">{init.num}</span>
+                <span className="font-display text-4xl font-light text-success/15">{init.num}</span>
               </div>
               <div>
                 <div className="accent-line-success" />
-                <h3 className="text-base font-semibold text-foreground mb-1">{init.heading}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed mb-3 max-w-xl">
+                <h3 className="text-xl font-semibold text-foreground mb-3">{init.heading}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-8 max-w-xl">
                   {init.body}
                   {(init as any).highlight && <>{" "}<span className="text-success font-semibold">{(init as any).highlight}</span></>}
                 </p>
                 
                 {/* Process flow */}
-                <div className="flex items-center gap-1 mb-2">
+                <div className="flex items-center gap-1 mb-6">
                   {init.steps.map((step, i) => (
                     <div key={step.label} className="flex items-center gap-1">
                       <ArchNode icon={step.icon} label={step.label} delay={0.3 + i * 0.08} variant="success" size="sm" />
@@ -104,21 +104,21 @@ const Slide7 = () => (
                   ))}
                 </div>
 
-                <div className="flex items-center gap-2 mb-1">
-                  <Check className="w-3.5 h-3.5 text-success/60 shrink-0" strokeWidth={1.5} />
-                  <p className="text-xs text-success/60 font-medium">{init.outcome}</p>
+                <div className="flex items-center gap-2 mb-3">
+                  <Check className="w-4 h-4 text-success/60 shrink-0" strokeWidth={1.5} />
+                  <p className="text-sm text-success/60 font-medium">{init.outcome}</p>
                 </div>
 
                 {(init as any).cisTag && (
-                  <p className="text-[10px] font-semibold text-muted-foreground/80 tracking-wider uppercase mb-2">{(init as any).cisTag}</p>
+                  <p className="text-[10px] font-semibold text-muted-foreground/80 tracking-wider uppercase mb-5">{(init as any).cisTag}</p>
                 )}
 
                 {/* 30/90/180-day timeline */}
-                <div className="flex gap-3">
+                <div className="flex gap-4">
                   {init.timeline.map((t) => (
-                    <div key={t.phase} className="flex-1 border border-success/10 rounded-lg px-3 py-2" style={{ background: "hsl(152 55% 48% / 0.04)" }}>
-                      <p className="text-[10px] font-bold text-success tracking-wider mb-0.5">{t.phase}</p>
-                      <p className="text-[10px] text-muted-foreground leading-snug">{t.task}</p>
+                    <div key={t.phase} className="flex-1 border border-success/10 rounded-lg px-4 py-3" style={{ background: "hsl(152 55% 48% / 0.04)" }}>
+                      <p className="text-xs font-bold text-success tracking-wider mb-1">{t.phase}</p>
+                      <p className="text-xs text-muted-foreground leading-snug">{t.task}</p>
                     </div>
                   ))}
                 </div>
