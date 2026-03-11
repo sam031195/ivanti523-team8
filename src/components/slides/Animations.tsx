@@ -99,9 +99,9 @@ export const ArchNode = ({
     neutral: { bg: "hsl(230 15% 16% / 0.4)", border: "hsl(230 15% 20%)", text: "text-foreground" },
   };
   const sizeStyles = {
-    sm: { box: "w-11 h-11", icon: "w-[18px] h-[18px]", label: "text-[11px]" },
-    md: { box: "w-14 h-14", icon: "w-5 h-5", label: "text-xs" },
-    lg: { box: "w-16 h-16", icon: "w-6 h-6", label: "text-xs" },
+    sm: { box: "w-11 h-11", icon: "w-[18px] h-[18px]", label: "text-xs" },
+    md: { box: "w-14 h-14", icon: "w-5 h-5", label: "text-sm" },
+    lg: { box: "w-16 h-16", icon: "w-6 h-6", label: "text-sm" },
   };
   const c = variantStyles[variant];
   const s = sizeStyles[size];
