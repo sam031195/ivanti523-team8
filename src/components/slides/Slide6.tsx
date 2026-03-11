@@ -97,7 +97,7 @@ const Slide6 = () => (
             <div className="s1-feature-item">
               <c.icon className="w-6 h-6 text-foreground s1-feature-icon mb-5" strokeWidth={1.5} />
               <h3>{c.heading}</h3>
-              <ul className="text-xs text-muted-foreground leading-relaxed space-y-1.5 list-none">
+              <ul className="text-[0.975rem] text-muted-foreground leading-relaxed space-y-1.5 list-none">
                 {c.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-primary/30 mt-1.5 shrink-0">•</span>
