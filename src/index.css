@@ -67,16 +67,16 @@
 @layer components {
   /* ── Slide Layout ── */
   .slide-section {
-    @apply relative min-h-screen flex items-center overflow-hidden;
+    @apply relative h-screen flex items-center overflow-hidden;
     background: hsl(var(--background));
   }
 
   .slide-container {
-    @apply max-w-[1100px] mx-auto px-12 py-24 w-full relative z-10;
+    @apply max-w-[1100px] mx-auto px-12 py-14 w-full relative z-10;
   }
 
   .slide-wide {
-    @apply max-w-[1280px] mx-auto px-12 py-24 w-full relative z-10;
+    @apply max-w-[1280px] mx-auto px-12 py-14 w-full relative z-10;
   }
 
   /* ── Photo Overlay ── */
