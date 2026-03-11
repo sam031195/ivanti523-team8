@@ -121,7 +121,7 @@
   /* ── Meta Label ── */
   .meta {
     @apply text-[10px] font-medium tracking-[0.2em] uppercase;
-    color: hsl(230 10% 40%);
+    color: hsl(230 10% 68%);
   }
 
   /* ── Stat Number — S1 style ── */
