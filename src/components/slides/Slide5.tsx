@@ -117,7 +117,7 @@ const Slide5 = () => (
               <p className="text-[0.975rem] text-muted-foreground leading-relaxed mb-3">{f.text}</p>
               <div className="flex items-start gap-2">
                 <AlertCircle className="w-3 h-3 text-destructive/30 mt-0.5 shrink-0" strokeWidth={1.5} />
-                <p className="text-xs text-destructive/40">{f.impact}</p>
+                <p className="text-[0.975rem] text-destructive/40">{f.impact}</p>
               </div>
             </div>
           </StaggerItem>
