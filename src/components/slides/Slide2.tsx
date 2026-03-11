@@ -32,7 +32,7 @@ const Slide2 = () => (
 
       {/* Kill Chain — clean S1 flow */}
       <FadeIn delay={0.15}>
-        <p className="meta mb-8">Attack Kill Chain</p>
+        <p className="meta mb-5">Attack Kill Chain</p>
         <div className="flex items-start justify-between mb-8">
           {[
             { icon: Bug, label: "Exploit", sub: "CVE-2023-46805" },
