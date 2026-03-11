@@ -41,7 +41,7 @@ const Slide3 = () => (
 
       {/* Escalation flow */}
       <FadeIn delay={0.15}>
-        <p className="meta mb-8">Escalation Path</p>
+        <p className="meta mb-4">Escalation Path</p>
         <div className="flex items-start justify-between mb-5 px-4">
           <ArchNode icon={Megaphone} label="Disclosure" sublabel="Jan 10" delay={0.2} variant="neutral" />
           <div className="mt-[24px]"><Connector delay={0.3} variant="neutral" /></div>
