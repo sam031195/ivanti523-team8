@@ -177,7 +177,7 @@ const Slide9 = () => (
             ].map((decision, i) => (
               <div key={i} className="flex items-start gap-3 border border-border/30 rounded-xl px-4 py-3" style={{ background: "hsl(264 78% 53% / 0.04)" }}>
                 <span className="font-display text-lg font-medium text-primary/40 mt-0.5">{i + 1}.</span>
-                <p className="text-xs text-foreground/80 leading-relaxed">{decision}</p>
+                <p className="text-[0.7875rem] text-foreground/80 leading-relaxed">{decision}</p>
               </div>
             ))}
           </div>
