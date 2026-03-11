@@ -62,7 +62,7 @@ const Slide3 = () => (
             { value: 48, suffix: "hrs", label: "To Full Disconnect" },
             { value: 5, suffix: "", label: "Full vulnerability cascade" },
           ].map((s, i) => (
-            <div key={s.label} className="py-5 text-center">
+            <div key={s.label} className="py-3 text-center">
               <p className="stat-number text-4xl mb-2">
                 <AnimatedCounter target={s.value} suffix={s.suffix} />
               </p>
