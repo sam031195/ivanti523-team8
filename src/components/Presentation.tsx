@@ -75,7 +75,7 @@ const Presentation = () => {
         animate={{ opacity: showUI ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
-        <span className="meta">Ivanti Post-Mortem</span>
+        <span className="meta"></span>
         <span className="meta">{String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}</span>
       </motion.div>
 
