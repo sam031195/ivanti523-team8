@@ -13,13 +13,60 @@ import Slide9 from "@/components/slides/Slide9";
 
 const slides = [Slide1, Slide2, Slide3, Slide4, Slide5, Slide6, Slide7, Slide8, Slide9];
 const TOTAL = slides.length;
+const BAR_COUNT = 5;
+
+const AudioWaveform = ({ analyserRef, isPlaying }: { analyserRef: React.RefObject<AnalyserNode | null>; isPlaying: boolean }) => {
+  const barsRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+
+  useEffect(() => {
+    const update = () => {
+      const analyser = analyserRef.current;
+      const container = barsRef.current;
+      if (!container) return;
+      const bars = container.children;
+      if (analyser && isPlaying) {
+        const data = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(data);
+        const step = Math.floor(data.length / BAR_COUNT);
+        for (let i = 0; i < BAR_COUNT; i++) {
+          const val = data[i * step] / 255;
+          const scale = 0.15 + val * 0.85;
+          (bars[i] as HTMLElement).style.transform = `scaleY(${scale})`;
+        }
+      } else {
+        for (let i = 0; i < bars.length; i++) {
+          (bars[i] as HTMLElement).style.transform = `scaleY(0.15)`;
+        }
+      }
+      rafRef.current = requestAnimationFrame(update);
+    };
+    rafRef.current = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [analyserRef, isPlaying]);
+
+  return (
+    <div ref={barsRef} className="flex items-end gap-[2px] h-5">
+      {Array.from({ length: BAR_COUNT }).map((_, i) => (
+        <div
+          key={i}
+          className="w-[3px] h-full rounded-full bg-primary/50 origin-bottom transition-transform duration-75"
+        />
+      ))}
+    </div>
+  );
+};
 
 const Presentation = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const [showUI, setShowUI] = useState(true);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [audioHovered, setAudioHovered] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const audioCtxRef = useRef<AudioContext | null>(null);
+  const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
 
   useEffect(() => {
     audioRef.current = new Audio("/audio/ml_conclusion.m4a");
@@ -31,6 +78,21 @@ const Presentation = () => {
     const audio = audioRef.current;
     if (!audio) return;
     if (current === 8) {
+      // Set up Web Audio API if not done
+      if (!audioCtxRef.current) {
+        const ctx = new AudioContext();
+        const source = ctx.createMediaElementSource(audio);
+        const analyser = ctx.createAnalyser();
+        analyser.fftSize = 64;
+        source.connect(analyser);
+        analyser.connect(ctx.destination);
+        audioCtxRef.current = ctx;
+        sourceRef.current = source;
+        analyserRef.current = analyser;
+      }
+      if (audioCtxRef.current.state === "suspended") {
+        audioCtxRef.current.resume();
+      }
       audio.currentTime = 0;
       audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
     } else {
@@ -67,15 +129,21 @@ const Presentation = () => {
     const onMove = () => {
       setShowUI(true);
       clearTimeout(timer);
-      timer = setTimeout(() => setShowUI(false), 3500);
+      if (current !== 8) {
+        timer = setTimeout(() => setShowUI(false), 3500);
+      }
     };
     window.addEventListener("mousemove", onMove);
-    timer = setTimeout(() => setShowUI(false), 3500);
+    if (current === 8) {
+      setShowUI(true);
+    } else {
+      timer = setTimeout(() => setShowUI(false), 3500);
+    }
     return () => {
       window.removeEventListener("mousemove", onMove);
       clearTimeout(timer);
     };
-  }, []);
+  }, [current]);
 
   const SlideComponent = slides[current];
 
@@ -98,19 +166,47 @@ const Presentation = () => {
       >
         <span className="meta"></span>
         {current === 8 && (
-          <div className="flex items-center gap-1">
-            {isPlaying ? (
-              <button onClick={() => { audioRef.current?.pause(); setIsPlaying(false); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
-                <Pause className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
-              </button>
-            ) : (
-              <button onClick={() => { audioRef.current?.play().then(() => setIsPlaying(true)); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
-                <Play className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
-              </button>
-            )}
-            <button onClick={() => { const a = audioRef.current; if (a) { a.currentTime = 0; a.play().then(() => setIsPlaying(true)); } }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
-              <RotateCcw className="w-3 h-3 text-foreground" strokeWidth={1.5} />
-            </button>
+          <div
+            className="relative flex items-center justify-center min-w-[60px] h-8"
+            onMouseEnter={() => setAudioHovered(true)}
+            onMouseLeave={() => setAudioHovered(false)}
+          >
+            <AnimatePresence mode="wait">
+              {!audioHovered ? (
+                <motion.div
+                  key="waveform"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-center justify-center"
+                >
+                  <AudioWaveform analyserRef={analyserRef} isPlaying={isPlaying} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="controls"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex items-center gap-1"
+                >
+                  {isPlaying ? (
+                    <button onClick={() => { audioRef.current?.pause(); setIsPlaying(false); }} className="p-1.5 rounded-md opacity-50 hover:opacity-90 transition-opacity">
+                      <Pause className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
+                    </button>
+                  ) : (
+                    <button onClick={() => { audioCtxRef.current?.resume(); audioRef.current?.play().then(() => setIsPlaying(true)); }} className="p-1.5 rounded-md opacity-50 hover:opacity-90 transition-opacity">
+                      <Play className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
+                    </button>
+                  )}
+                  <button onClick={() => { const a = audioRef.current; if (a) { a.currentTime = 0; audioCtxRef.current?.resume(); a.play().then(() => setIsPlaying(true)); } }} className="p-1.5 rounded-md opacity-50 hover:opacity-90 transition-opacity">
+                    <RotateCcw className="w-3 h-3 text-foreground" strokeWidth={1.5} />
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         )}
         <span className="meta">{String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}</span>
