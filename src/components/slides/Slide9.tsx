@@ -25,10 +25,24 @@ const Slide9 = () => (
         </h1>
       </FadeIn>
 
+      {/* Takeaways — S1 feature grid */}
+      <StaggerContainer className="s1-feature-grid grid-cols-3 mb-14" delay={0.12}>
+        {takeaways.map((t) => (
+          <StaggerItem key={t.heading}>
+            <div className="s1-feature-item">
+              
+              <t.icon className="w-6 h-6 text-primary/50 s1-feature-icon mb-5" strokeWidth={1.5} />
+              <h3>{t.heading}</h3>
+              <p>{t.body}</p>
+            </div>
+          </StaggerItem>
+        ))}
+      </StaggerContainer>
+
       {/* Future state ops model */}
-      <FadeIn delay={0.12}>
+      <FadeIn delay={0.35}>
         <p className="meta mb-6">Future State — Security Operations Model</p>
-        <div className="flex items-center justify-between mb-14 px-2">
+        <div className="flex items-center justify-between mb-8 px-2">
           {[
             { icon: Radar, label: "Detect", sub: "Continuous", v: "default" as const },
             { icon: Activity, label: "Analyze", sub: "AI + Human", v: "default" as const },
@@ -139,7 +153,6 @@ const Slide9 = () => (
               const colorMap = { default: "hsl(264 78% 53%)", warning: "hsl(38 92% 50%)", success: "hsl(152 55% 48%)" };
               const startColor = colorMap[step.v];
               const endColor = colorMap[arr[i + 1].v];
-              // Dot uses a blend of both colors - midpoint gradient
               const dotBg = startColor === endColor ? startColor : `linear-gradient(135deg, ${startColor}, ${endColor})`;
               items.push(
                 <div key={`line-${i}`} className="flex items-center flex-1 relative -mt-8">
@@ -152,20 +165,6 @@ const Slide9 = () => (
           })}
         </div>
       </FadeIn>
-
-      {/* Takeaways — S1 feature grid */}
-      <StaggerContainer className="s1-feature-grid grid-cols-3 mb-8" delay={0.35}>
-        {takeaways.map((t) => (
-          <StaggerItem key={t.heading}>
-            <div className="s1-feature-item">
-              
-              <t.icon className="w-6 h-6 text-primary/50 s1-feature-icon mb-5" strokeWidth={1.5} />
-              <h3>{t.heading}</h3>
-              <p>{t.body}</p>
-            </div>
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
 
       <FadeIn delay={0.5}>
         <div>
