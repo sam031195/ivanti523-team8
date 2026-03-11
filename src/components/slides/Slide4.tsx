@@ -83,10 +83,10 @@ const Slide4 = () => (
             <div className="s1-feature-item">
               <div className="accent-line-danger" />
               <div className="flex items-center gap-3 mb-4">
-                <f.icon className="w-5 h-5 text-destructive s1-feature-icon" strokeWidth={1.5} />
+                 <f.icon className="w-6 h-6 text-destructive s1-feature-icon" strokeWidth={1.5} />
                 <div>
-                  <p className="text-[10px] font-semibold text-destructive/50 tracking-wider uppercase">{f.cis}</p>
-                  <p className="text-sm font-semibold text-foreground">{f.title}</p>
+                  <p className="text-xs font-bold text-destructive/70 tracking-wider uppercase">{f.cis}</p>
+                  <p className="text-lg font-bold text-white">{f.title}</p>
                 </div>
               </div>
               <ul className="text-sm text-muted-foreground leading-relaxed mb-4 space-y-1.5 list-none">
