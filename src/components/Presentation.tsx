@@ -95,7 +95,7 @@ const Presentation = () => {
           className="h-full w-full overflow-y-auto"
         >
           <SlideComponent />
-          <div className="fixed bottom-[20%] left-8 z-30">
+          <div className="fixed bottom-[3%] left-8 z-30">
             <span className="text-sm font-semibold tracking-[0.15em] uppercase text-foreground/80">Presented by Team #8 — Ashish, Surbhi, Norah, Fardeen &amp; Masud</span>
           </div>
           <div className="fixed bottom-6 right-8 z-30">
