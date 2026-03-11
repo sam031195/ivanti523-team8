@@ -24,8 +24,8 @@ const Slide5 = () => (
 
       {/* SOC Architecture — S1 style open layout */}
       <FadeIn delay={0.2}>
-        <p className="meta mb-10">Security Operations Architecture</p>
-        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 items-start mb-10">
+        <p className="meta mb-6">Security Operations Architecture</p>
+        <div className="grid grid-cols-[1fr_auto_1fr] gap-8 items-start mb-6">
           {/* Monitored */}
           <div>
             <div className="accent-line-success" />
