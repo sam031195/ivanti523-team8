@@ -89,7 +89,7 @@ const Slide4 = () => (
                   <p className="text-lg font-bold text-white">{f.title}</p>
                 </div>
               </div>
-              <ul className="text-xs text-muted-foreground leading-relaxed mb-4 space-y-1.5 list-none">
+              <ul className="text-[0.975rem] text-muted-foreground leading-relaxed mb-4 space-y-1.5 list-none">
                 {f.bullets.map((b, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="text-destructive/40 mt-1.5 shrink-0">•</span>
