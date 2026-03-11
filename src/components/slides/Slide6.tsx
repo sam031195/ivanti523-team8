@@ -63,7 +63,7 @@ const Slide6 = () => (
 
       {/* Stats — S1 style with accent lines above */}
       <FadeIn delay={0.3}>
-        <div className="grid grid-cols-3 gap-0 mb-8">
+        <div className="grid grid-cols-3 gap-0 mb-5">
           {stats.map((s, i) => (
             <div key={s.label} className={`py-2 text-center ${i > 0 ? "pl-8" : ""} ${i < 2 ? "pr-8" : ""}`}>
               <p className="text-4xl font-medium mb-3 bg-clip-text text-transparent" style={{ backgroundImage: "linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 70%))" }}>
