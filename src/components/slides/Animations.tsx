@@ -120,8 +120,8 @@ export const ArchNode = ({
       >
         <Icon className={`${iconS} ${c.text}`} strokeWidth={1.5} />
       </div>
-      <span className={`${s.label} font-bold text-foreground/90 text-center leading-tight`}>{label}</span>
-      {sublabel && sublabel.split('\n').map((line, i) => <span key={i} className={`text-[10px] font-medium text-foreground/75 text-center leading-tight ${i === 0 ? '-mt-1' : '-mt-1.5'}`}>{line}</span>)}
+      <span className={`${s.label} font-bold text-white text-center leading-tight`}>{label}</span>
+      {sublabel && sublabel.split('\n').map((line, i) => <span key={i} className={`text-[10px] font-semibold text-foreground/85 text-center leading-tight ${i === 0 ? '-mt-1' : '-mt-1.5'}`}>{line}</span>)}
     </motion.div>
   );
 };
