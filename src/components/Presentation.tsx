@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Maximize } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize, Play, Pause, RotateCcw } from "lucide-react";
 import Slide1 from "@/components/slides/Slide1";
 import Slide2 from "@/components/slides/Slide2";
 import Slide3 from "@/components/slides/Slide3";
@@ -18,6 +18,27 @@ const Presentation = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const [showUI, setShowUI] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    audioRef.current = new Audio("/audio/ml_conclusion.m4a");
+    audioRef.current.addEventListener("ended", () => setIsPlaying(false));
+    return () => { audioRef.current?.pause(); audioRef.current = null; };
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (current === 8) {
+      audio.currentTime = 0;
+      audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+      setIsPlaying(false);
+    }
+  }, [current]);
 
   const go = useCallback((dir: number) => {
     setCurrent((prev) => {
@@ -76,6 +97,22 @@ const Presentation = () => {
         transition={{ duration: 0.3 }}
       >
         <span className="meta"></span>
+        {current === 8 && (
+          <div className="flex items-center gap-1">
+            {isPlaying ? (
+              <button onClick={() => { audioRef.current?.pause(); setIsPlaying(false); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+                <Pause className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
+              </button>
+            ) : (
+              <button onClick={() => { audioRef.current?.play().then(() => setIsPlaying(true)); }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+                <Play className="w-3.5 h-3.5 text-foreground" strokeWidth={1.5} />
+              </button>
+            )}
+            <button onClick={() => { const a = audioRef.current; if (a) { a.currentTime = 0; a.play().then(() => setIsPlaying(true)); } }} className="p-1.5 rounded-md opacity-40 hover:opacity-90 transition-opacity">
+              <RotateCcw className="w-3 h-3 text-foreground" strokeWidth={1.5} />
+            </button>
+          </div>
+        )}
         <span className="meta">{String(current + 1).padStart(2, "0")} / {String(TOTAL).padStart(2, "0")}</span>
       </motion.div>
 
