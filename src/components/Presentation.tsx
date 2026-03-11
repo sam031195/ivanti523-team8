@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Maximize } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize, Download, Loader2 } from "lucide-react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import Slide1 from "@/components/slides/Slide1";
 import Slide2 from "@/components/slides/Slide2";
 import Slide3 from "@/components/slides/Slide3";
@@ -18,6 +20,7 @@ const Presentation = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
   const [showUI, setShowUI] = useState(true);
+  const [generating, setGenerating] = useState(false);
 
   const go = useCallback((dir: number) => {
     setCurrent((prev) => {
@@ -55,6 +58,65 @@ const Presentation = () => {
       clearTimeout(timer);
     };
   }, []);
+
+  const generatePDF = async () => {
+    setGenerating(true);
+    try {
+      // Create an off-screen container
+      const container = document.createElement("div");
+      container.style.position = "fixed";
+      container.style.left = "-9999px";
+      container.style.top = "0";
+      container.style.width = "1920px";
+      container.style.height = "1080px";
+      container.style.overflow = "hidden";
+      container.style.zIndex = "-1";
+      document.body.appendChild(container);
+
+      const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [1920, 1080] });
+
+      for (let i = 0; i < TOTAL; i++) {
+        const SlideComp = slides[i];
+        const slideDiv = document.createElement("div");
+        slideDiv.style.width = "1920px";
+        slideDiv.style.height = "1080px";
+        slideDiv.style.overflow = "hidden";
+        slideDiv.style.background = "hsl(230 25% 7%)";
+        container.innerHTML = "";
+        container.appendChild(slideDiv);
+
+        // Render slide using React
+        const { createRoot } = await import("react-dom/client");
+        const root = createRoot(slideDiv);
+        root.render(<SlideComp />);
+
+        // Wait for rendering + images
+        await new Promise((r) => setTimeout(r, 1500));
+
+        const canvas = await html2canvas(slideDiv, {
+          width: 1920,
+          height: 1080,
+          scale: 2,
+          useCORS: true,
+          backgroundColor: "#0d0f17",
+        });
+
+        const imgData = canvas.toDataURL("image/jpeg", 0.92);
+        if (i > 0) pdf.addPage([1920, 1080], "landscape");
+        pdf.addImage(imgData, "JPEG", 0, 0, 1920, 1080);
+
+        root.unmount();
+      }
+
+      document.body.removeChild(container);
+      pdf.save("Ivanti-PostMortem-Team8.pdf");
+    } catch (err) {
+      console.error("PDF generation failed:", err);
+      alert("PDF generation failed. Try using your browser's Print to PDF (Ctrl+P) instead.");
+    } finally {
+      setGenerating(false);
+    }
+  };
 
   const SlideComponent = slides[current];
 
@@ -104,6 +166,16 @@ const Presentation = () => {
         </motion.div>
       </AnimatePresence>
 
+      {/* PDF generating overlay */}
+      {generating && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm">
+          <div className="flex flex-col items-center gap-3">
+            <Loader2 className="w-8 h-8 text-primary animate-spin" />
+            <span className="text-sm text-muted-foreground">Generating PDF…</span>
+          </div>
+        </div>
+      )}
+
       {/* Bottom nav */}
       <motion.div
         className="fixed bottom-5 left-1/2 z-50 flex items-center gap-2 px-3 py-2 rounded-xl"
@@ -137,6 +209,15 @@ const Presentation = () => {
         </button>
 
         <div className="w-px h-4 bg-border mx-0.5" />
+
+        <button
+          onClick={generatePDF}
+          disabled={generating}
+          className="p-1.5 hover:bg-secondary rounded-lg transition disabled:opacity-50"
+          title="Download as PDF"
+        >
+          <Download className="w-3 h-3 text-muted-foreground" strokeWidth={1.5} />
+        </button>
 
         <button
           onClick={() => { if (!document.fullscreenElement) document.documentElement.requestFullscreen(); else document.exitFullscreen(); }}
