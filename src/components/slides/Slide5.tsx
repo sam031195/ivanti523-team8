@@ -17,7 +17,7 @@ const Slide5 = () => (
           <EyeOff className="w-2.5 h-2.5" strokeWidth={1.5} />
           Visibility Failure
         </div>
-        <h1 className="font-display text-4xl md:text-[4.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-14">
+        <h1 className="font-display text-4xl md:text-[3.5rem] font-light leading-[0.9] tracking-[-0.03em] text-foreground mb-8">
           Why We Were <span className="text-destructive font-medium">Blind.</span>
         </h1>
       </FadeIn>
