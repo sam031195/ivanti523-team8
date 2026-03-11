@@ -133,7 +133,7 @@
 
   /* ── Purple Accent Line (like CSPM / CWPP headers on S1) ── */
   .accent-line {
-    @apply w-full h-[2px] mb-5;
+    @apply w-full h-[2px] mb-3;
     background: linear-gradient(90deg, hsl(264 78% 53%), hsl(264 78% 53% / 0.2));
   }
   .accent-line-danger {
